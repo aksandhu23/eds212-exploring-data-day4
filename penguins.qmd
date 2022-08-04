@@ -1,0 +1,42 @@
+---
+title: "Day 4 - Exploring Data"
+author: "Amritpal Sandhu"
+format: html
+editor: visual
+---
+
+```{r}
+
+#| warning: false
+#| echo: false
+
+library(tidyverse)
+library(palmerpenguins)
+library(GGally)
+library(skimr)
+```
+
+## Exploratory Data Viz
+
+View("") to see the data set
+
+Check out your data a bit
+
+```{r}
+
+# If you want nothing of the code chunk to show up
+
+#| include: false
+
+#Tell me the column name
+names(penguins)
+
+# What are the dimension?
+dim(penguins)
+
+# Can you show me the first 6 lines?
+head(penguins)
+
+# Can you show me the last 6 lines?
+tail(penguins)
+```
