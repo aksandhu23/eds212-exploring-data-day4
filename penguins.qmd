@@ -8,6 +8,8 @@ editor: visual
 ```{r}
 
 #| warning: false
+
+# If you don't want the output to show but no code
 #| echo: false
 
 library(tidyverse)
@@ -18,7 +20,7 @@ library(skimr)
 
 ## Exploratory Data Viz
 
-View("") to see the data set
+View("") on the console to see the data set
 
 Check out your data a bit
 
@@ -40,3 +42,40 @@ head(penguins)
 # Can you show me the last 6 lines?
 tail(penguins)
 ```
+
+```{r}
+#| echo: false
+2+10
+```
+
+```{r}
+skim(penguins)
+```
+
+```{r}
+GGally::ggpairs(penguins)
+```
+
+
+## Jitterplot
+
+Flipper length by species
+
+```{r}
+#| Flipper
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) + 
+  geom_jitter(width = .2, 
+              alpha = .5, 
+              aes(color = species)) + 
+  geom_boxplot(fill = NA) +
+  theme_light() +
+  scale_color_manual(values = c("darkorchid4", "cyan4", "goldenrod")) + labs(x = "Penguin Species", y = "Flipper Length", title = "Flipper Length vs Species")
+
+```
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm)) + 
+  geom_histogram(aes(fill = species), color = "magenta") + 
+  facet_wrap(~species, ncol = 1)
+```
+
